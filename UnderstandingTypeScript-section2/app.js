@@ -8,8 +8,10 @@ function add(n1, n2, showResult, phrase) {
     }
     return result;
 }
-var number1 = 5;
+var number1;
+number1 = 5;
 var number2 = 2.8;
 var printResult = true;
 var resultPhrase = 'Result: ';
+// resultPhrase = 0;
 add(number1, number2, printResult, resultPhrase);
