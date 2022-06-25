@@ -6,6 +6,12 @@ function printResult(num: number): void {
   console.log('Result: ' + num);
 }
 
-printResult(add(5, 12));
+let combineValues: (a: number, b: number) => number;
 
-console.log(printResult(add(5, 12)));
+combineValues = add;
+// combineValues = printResult;
+// combineValues = 5;
+
+console.log(combineValues(8, 8));
+
+printResult(add(5, 12));
