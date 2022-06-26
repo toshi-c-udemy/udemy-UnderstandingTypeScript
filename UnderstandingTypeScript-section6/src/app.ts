@@ -101,8 +101,22 @@ moveAnimal({ type: 'bird', flyingSpeed: 10 });
 // const userInputElement = <HTMLInputElement>(
 //   document.getElementById('message-output')!
 // );
-const userInputElement = document.getElementById('message-output');
+const userInputElement = document.getElementById('user-input');
 
 if (userInputElement) {
   (userInputElement as HTMLInputElement).value = 'こんにちは';
 }
+
+interface ErrorContainer {
+  // {  // 含めたいオブジェクト
+  //    email: '正しいメールアドレスではありません',
+  //    username: 'ユーザー名に記号を含めることはできません'
+  //    ...
+
+  [prop: string]: string;
+}
+
+const errorBag: ErrorContainer = {
+  email: '正しいメールアドレスではありません',
+  username: 'ユーザー名に記号を含めることはできません',
+};
