@@ -36,6 +36,17 @@ function add(a: Combinable, b: Combinable) {
 const result = add('Hello', ' TypeScript');
 result.split(' ');
 
+const fetchedUserData = {
+  id: 'u1',
+  name: 'user1',
+  job: {
+    title: 'Developer',
+    description: 'TypeScript',
+  },
+};
+
+console.log(fetchedUserData?.job?.title);
+
 // type UnknownEmployee = Employee | Admin;
 
 // function printEmployeeInformation(emp: UnknownEmployee) {
