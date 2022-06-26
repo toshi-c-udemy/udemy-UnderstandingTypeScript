@@ -8,7 +8,7 @@
 
 セクション2: TypeScriptの基本と型
 
-セクション3: TypeScript の設定とコンパイラ
+セクション3: TypeScriptの設定とコンパイラ
 
 セクション4: 新しい世代のJavaScriptとTypeScript
 
