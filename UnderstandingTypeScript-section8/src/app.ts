@@ -81,7 +81,7 @@ class Product {
     if (val > 0) {
       this._price = val;
     } else {
-      throw new Error('不正な価格です - 0以下では設定できません');
+      throw new Error('不正な価格です - 0以下は設定できません');
     }
   }
 
@@ -91,7 +91,7 @@ class Product {
   }
 
   @Log3
-  getPriceTax(@Log4 tax: number) {
+  getPriceWithTax(@Log4 tax: number) {
     return this._price * (1 + tax);
   }
 }
@@ -99,7 +99,7 @@ class Product {
 const p1 = new Product('Book', 100);
 const p2 = new Product('Book2', 200);
 
-function AutoBind(_: any, _2: string, descriptor: PropertyDescriptor) {
+function Autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
   const adjDescriptor: PropertyDescriptor = {
     configurable: true,
@@ -115,7 +115,7 @@ function AutoBind(_: any, _2: string, descriptor: PropertyDescriptor) {
 class Printer {
   message = 'クリックしました！';
 
-  @AutoBind
+  @Autobind
   showMessage() {
     console.log(this.message);
   }
