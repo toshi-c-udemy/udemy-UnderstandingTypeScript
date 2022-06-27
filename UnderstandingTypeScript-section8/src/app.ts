@@ -1,4 +1,5 @@
 function Logger(logString: string) {
+  console.log('LOGGER ファクトリ');
   return function (constructor: Function) {
     console.log(logString);
     console.log(constructor);
@@ -6,7 +7,9 @@ function Logger(logString: string) {
 }
 
 function WithTemplate(template: string, hookId: string) {
+  console.log('TEMPLATE ファクトリ');
   return function (constructor: any) {
+    console.log('テンプレートを表示');
     const hookEl = document.getElementById(hookId);
     const p = new constructor();
     if (hookEl) {
@@ -17,6 +20,7 @@ function WithTemplate(template: string, hookId: string) {
 }
 
 // @Logger('ログ出力中 - PERSON')
+@Logger('ログ出力中')
 @WithTemplate('<h1>Personオブジェクト</h1>', 'app')
 class Person {
   name = 'Max';
