@@ -1,13 +1,15 @@
-import { DragTarget } from '../models/drag-drop.js';
-import { Project, ProjectStatus } from '../models/project.js';
-import Component from './base-component.js';
-import { autobind } from '../decorators/autobind.js';
-import { projectState } from '../state/project-state.js';
-import { ProjectItem } from './project-item.js';
+import { DragTarget } from '../models/drag-drop';
+import { Project, ProjectStatus } from '../models/project';
+import Component from './base-component';
+import { autobind } from '../decorators/autobind';
+import { projectState } from '../state/project-state';
+import { ProjectItem } from './project-item';
 
 // ProjectList Class
-export class ProjectList extends Component<HTMLDivElement, HTMLElement>
-  implements DragTarget {
+export class ProjectList
+  extends Component<HTMLDivElement, HTMLElement>
+  implements DragTarget
+{
   assignedProjects: Project[];
 
   constructor(private type: 'active' | 'finished') {
@@ -32,7 +34,7 @@ export class ProjectList extends Component<HTMLDivElement, HTMLElement>
     const prjId = event.dataTransfer!.getData('text/plain');
     projectState.moveProject(
       prjId,
-      this.type === 'active' ? ProjectStatus.Active : ProjectStatus.Finished,
+      this.type === 'active' ? ProjectStatus.Active : ProjectStatus.Finished
     );
   }
 
@@ -48,7 +50,7 @@ export class ProjectList extends Component<HTMLDivElement, HTMLElement>
     this.element.addEventListener('dragleave', this.dragLeaveHandler);
 
     projectState.addListener((projects: Project[]) => {
-      const relevantProjects = projects.filter(prj => {
+      const relevantProjects = projects.filter((prj) => {
         if (this.type === 'active') {
           return prj.status === ProjectStatus.Active;
         }
@@ -68,7 +70,7 @@ export class ProjectList extends Component<HTMLDivElement, HTMLElement>
 
   private renderProjects() {
     const listEl = document.getElementById(
-      `${this.type}-projects-list`,
+      `${this.type}-projects-list`
     )! as HTMLUListElement;
     listEl.innerHTML = '';
     for (const prjItem of this.assignedProjects) {
