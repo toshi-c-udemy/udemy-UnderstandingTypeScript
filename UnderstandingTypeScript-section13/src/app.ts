@@ -1,3 +1,5 @@
+import { GOOGLE_API_KEY } from './credentials';
+
 const form = document.querySelector('form')!;
 const addressInput = document.getElementById('address')! as HTMLInputElement;
 
